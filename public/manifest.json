@@ -2,12 +2,23 @@
   "name": "TODO List Extension",
   "version": "1.0",
   "manifest_version": 2,
-  "browser_action": {
-    "default_popup": "index.html"
-  },
+  "browser_action": {},
   "content_security_policy": "script-src 'self' 'sha256-vyHR5fyE4FdZfb/LdQ4q1IedpaWs9pI1LIwkEbEeO3Q='; object-src 'self'",
   "permissions": [
     "webRequest",
     "*://*.herokuapp.com/*"
-  ]
+  ],
+  "content_scripts" : [
+    {
+      "matches": [ "<all_urls>" ],
+      "css": ["/static/css/app.css"],
+      "js": ["/static/js/content.js"]
+    }
+  ],
+  "web_accessible_resources":[
+     "/static/css/content.css"
+  ],
+  "background": {
+    "scripts": ["/static/js/background.js"]
+  }
 }
