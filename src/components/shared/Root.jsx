@@ -9,6 +9,7 @@ import SignIn from '../authentication/SignIn'
 import SignUp from '../authentication/SignUp'
 
 // Resources
+import Todos from '../todo/Index'
 
 // Components
 import Navigation from './Navigation'
@@ -64,9 +65,10 @@ class Root extends React.Component {
         />
         <Errors />
         <Switch>
-          <Route path='/share' />
-          <Route exact path='/sign_in' component={SignIn} />
+          <Route path='/sign_in' component={SignIn} />
           <Route path='/sign_up' component={SignUp} />
+          <Route path='/share' />
+          <Route exact path='/' component={Todos} />
           <Route component={NotFound} />
         </Switch>
       </div>

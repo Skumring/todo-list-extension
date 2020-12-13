@@ -1,6 +1,6 @@
 html, body, iframe, .frame-root, .frame-content, .container {
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .todo-list {
@@ -99,11 +99,7 @@ input[placeholder] {
 }
 
 .listWrapper {
-  position: absolute;
-  bottom: 50px;
-  top: 160px;
-  right: 0;
-  left: 0;
+  position: relative;
   overflow: auto;
 }
 

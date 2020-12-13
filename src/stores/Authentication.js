@@ -116,6 +116,6 @@ export default class Authentication {
   }
   
   getAuthHeaders() {
-    return { 'Authorization': this.accessToken }
+    return { 'Authorization': this.accessToken, 'Access-Control-Allow-Origin': '*' }
   }
 }
