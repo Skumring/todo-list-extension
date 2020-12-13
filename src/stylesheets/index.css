@@ -25,7 +25,7 @@ code {
 
 #todo-list-root {
   display: flex;
-  width: 400px;
+  min-width: 400px;
   height: 100%;
   position: relative;
   background-color: white;

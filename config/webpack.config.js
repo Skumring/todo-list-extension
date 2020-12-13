@@ -373,6 +373,8 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  ['@babel/plugin-proposal-decorators', { 'legacy': true }],
+                  ["@babel/plugin-proposal-class-properties", { 'loose': false }],
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
