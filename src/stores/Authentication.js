@@ -35,6 +35,30 @@ export default class Authentication {
     })
   }
   
+  @action signUp(email, name, password, passwordConfirmation) {
+    let requestData = {
+      user: {
+        email: email,
+        name: name,
+        password: password,
+        password_confirmation: passwordConfirmation
+      }
+    }
+    
+    axios({
+      method: 'POST',
+      url: `${API_URL}/sign_up`,
+      data: requestData
+    }).then((response) => {
+      if (response.status === 201) {
+        this.setAccessToken(response.headers['authorization'])
+        this.setCurrentUser(response.data.user)
+      }
+    }).catch((error) => {
+      this.errorsStore.handleErrors(error.response.data.errors)
+    })
+  }
+  
   @action signOut() {
     axios({
       method: 'DELETE',

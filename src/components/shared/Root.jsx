@@ -6,6 +6,7 @@ import PropTypes from 'prop-types'
 
 // Authentication
 import SignIn from '../authentication/SignIn'
+import SignUp from '../authentication/SignUp'
 
 // Resources
 
@@ -39,9 +40,9 @@ class Root extends React.Component {
     let location = this.props.location.pathname
     
     this.authenticationStore.getAccessToken().then(() => {
-      if (!this.authenticationStore.accessToken && location !== '/sign_in') {
+      if (!this.authenticationStore.accessToken && location !== '/sign_up' && location !== '/sign_in') {
         this.props.history.push({ pathname: '/sign_in' })
-      } else if (this.authenticationStore.accessToken && location === '/sign_in') {
+      } else if (this.authenticationStore.accessToken && (location === '/sign_up' || location === '/sign_in')) {
         this.props.history.push({ pathname: '/' })
       }
     })
@@ -64,7 +65,8 @@ class Root extends React.Component {
         <Errors />
         <Switch>
           <Route path='/share' />
-          <Route path='/sign_in' component={SignIn} />
+          <Route exact path='/sign_in' component={SignIn} />
+          <Route path='/sign_up' component={SignUp} />
           <Route component={NotFound} />
         </Switch>
       </div>
