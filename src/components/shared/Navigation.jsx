@@ -23,9 +23,6 @@ export default class Navigation extends React.Component {
         <Navbar.Brand href='/'>TODO List Extension</Navbar.Brand>
         <Navbar.Toggle aria-controls='nav-links' />
         <Navbar.Collapse id='nav-links'>
-          <Nav className='mr-auto' activeKey='/'>
-            <Nav.Link href='#share'>Share</Nav.Link>
-          </Nav>
           <Nav activeKey='/'>
             {!accessToken && signInLink}
             {accessToken && signOutLink}
